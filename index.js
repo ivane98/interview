@@ -1,223 +1,218 @@
 // 1. Reverse a String
 function reverse(str) {
-  return str.split("").reverse().join("");
+    return str.split("").reverse().join("");
 }
 
 //again
 // 2. Check Palindrome
 function isPalindrome(str) {
-  const clean = str.toLowerCase().replace(/[^a-z0-9]/g, "");
-
-  return clean === clean.split("").reverse().join("");
+    const clean = str.toLowerCase().replace(/[^a-z0-9]/g, "");
+    return clean === clean.split("").reverse().join("");
 }
 
 // 3. Find Maximum in Array
 function findMax(arr) {
-  if (arr.length === 0) {
-    return false;
-  }
-  let max = arr[0];
-
-  arr.forEach((element) => {
-    if (element > max) {
-      max = element;
+    if (arr.length === 0) {
+        return false;
     }
-  });
+    let max = arr[0];
 
-  return max;
+    arr.forEach((element) => {
+        if (element > max) {
+            max = element;
+        }
+    });
+
+    return max;
 }
 
 // 4. FizzBuzz
-function fizBuzz(n) {
-  let result = [];
-  for (let i = 1; i <= n; i++) {
-    if (i % 5 === 0 && i % 3 === 0) {
-      result.push("FizzBuzz");
-    } else if (i % 3 === 0) {
-      result.push("Fizz");
-    } else if (i % 5 === 0) {
-      result.push("Buzz");
-    } else {
-      result.push(i);
+function fizzBuzz(n) {
+    let result = [];
+    for (let i = 1; i <= n; i++) {
+        if (i % 5 === 0 && i % 3 === 0) {
+            result.push("FizzBuzz");
+        } else if (i % 3 === 0) {
+            result.push("Fizz");
+        } else if (i % 5 === 0) {
+            result.push("Buzz");
+        } else {
+            result.push(i);
+        }
     }
-  }
 
-  return result;
+    return result;
 }
 
 // 5. Sum Two Numbers
 function sumTwo(a, b) {
-  if (typeof a != "number" || typeof b != "number") {
-    return false;
-  }
+    if (typeof a != "number" || typeof b != "number") {
+        return false;
+    }
 
-  return a + b;
+    return a + b;
 }
 
-//again
 // 6. Count Vowels
 function countVowels(str) {
-  let count = 0;
+    let count = 0;
 
-  str.split("").forEach((e) => {
-    if ("aeiou".includes(e.toLowerCase())) {
-      count++;
-    }
-  });
+    str.split("").forEach((e) => {
+        if ("aeiou".includes(e.toLowerCase())) {
+            count++;
+        }
+    });
 
-  return count;
+    return count;
 }
 
 //again
 // 7. Check Anagrams
 function areAnagrams(str1, str2) {
-  if (typeof str1 !== "string" || typeof str2 !== "string") return false;
+    if (typeof str1 !== "string" || typeof str2 !== "string") return false;
 
-  const clean1 = str1
-    .toLocaleLowerCase()
-    .replace(/[^a-z]/g, "")
-    .split("")
-    .sort()
-    .join("");
-  const clean2 = str2
-    .toLocaleLowerCase()
-    .replace(/[^a-z]/g, "")
-    .split("")
-    .sort()
-    .join("");
+    const clean1 = str1
+        .toLocaleLowerCase()
+        .replace(/[^a-z]/g, "")
+        .split("")
+        .sort()
+        .join("");
+    const clean2 = str2
+        .toLocaleLowerCase()
+        .replace(/[^a-z]/g, "")
+        .split("")
+        .sort()
+        .join("");
 
-  return clean1 === clean2;
+    return clean1 === clean2;
 }
 
-//again
 // 8. Check Prime Number
 function isPrime(num) {
-  if (typeof num !== "number" || num <= 1) return false;
-  for (let i = 2; i <= Math.sqrt(num); i++) {
-    if (num % i === 0) return false;
-  }
-  return true;
+    if (typeof num !== "number" || num <= 1) return false;
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) return false;
+    }
+    return true;
 }
 
 //again
 // 9. Remove Duplicates from Array
 function removeDuplicates(arr) {
-  if (!Array.isArray(arr)) return false;
+    if (!Array.isArray(arr)) return false;
 
-  return [...new Set(arr)];
+    return [...new Set(arr)];
 }
 
 //again
 // 10. Find First Non-Repeated Character
 function firstNonRepeatedChar(str) {
-  if (typeof str !== "string" || str.length === 0) return "";
+    if (typeof str !== "string" || str.length === 0) return "";
 
-  let charCount = {};
+    let charCount = {};
 
-  for (let char of str) {
-    charCount[char] = (charCount[char] || 0) + 1;
-  }
+    for (let char of str) {
+        charCount[char] = (charCount[char] || 0) + 1;
+    }
 
-  for (let char of str) {
-    if (charCount[char] === 1) return char;
-  }
+    for (let char of str) {
+        if (charCount[char] === 1) return char;
+    }
 
-  return "";
+    return "";
 }
 
 // 11. Sum of Array
 function sumOfArray(arr) {
-  if (!Array.isArray(arr) || arr.length === 0) return 0;
+    if (!Array.isArray(arr) || arr.length === 0) return 0;
 
-  return arr.reduce(
-    (sum, num) => (typeof num === "number" ? sum + num : sum),
-    0
-  );
+    return arr.reduce(
+        (sum, num) => (typeof num === "number" ? sum + num : sum),
+        0
+    );
 }
 
 //again
 // 12. Check if Array is Sorted
 function isSorted(arr) {
-  if (!Array.isArray(arr) || arr.length === 0) return true;
+    if (!Array.isArray(arr) || arr.length === 0) return true;
 
-  for (let i = 0; i < arr.length - 1; i++) {
-    if (
-      typeof arr[i] !== "number" ||
-      typeof arr[i + 1] !== "number" ||
-      arr[i] > arr[i + 1]
-    )
-      return false;
-  }
-  return true;
+    for (let i = 0; i < arr.length - 1; i++) {
+        if (
+            typeof arr[i] !== "number" ||
+            typeof arr[i + 1] !== "number" ||
+            arr[i] > arr[i + 1]
+        )
+            return false;
+    }
+    return true;
 }
 
 //again
 // 13. Capitalize First Letter
 function capitalizeFirst(str) {
-  if (typeof str !== "string" || str.length === 0) return false;
+    if (typeof str !== "string" || str.length === 0) return false;
 
-  return str[0].toUpperCase() + str.slice(1);
+    return str[0].toUpperCase() + str.slice(1);
 }
 
 //again
 // 14. Find Missing Number
 function findMissingNumber(arr) {
-  if (!Array.isArray(arr) || arr.length === 0) return null;
-  const n = arr.length + 1;
-  const expectedSum = (n * (n + 1)) / 2;
-  const actualSum = arr.reduce((sum, num) => sum + num, 0);
-  return expectedSum - actualSum;
+    if (!Array.isArray(arr) || arr.length === 0) return null;
+    const n = arr.length + 1;
+    const expectedSum = (n * (n + 1)) / 2;
+    const actualSum = arr.reduce((sum, num) => sum + num, 0);
+    return expectedSum - actualSum;
 }
 
 //again
 // 15. Rotate Array
 function rotateArray(arr, k) {
-  // Problem: Rotate array right by k steps.
-  // Plan: Use slice to split and rearrange array.
-  // Edge cases: Empty array, k > length, non-array.
-  if (!Array.isArray(arr) || arr.length === 0) return [];
-  k = k % arr.length;
-  return [...arr.slice(-k), ...arr.slice(0, -k)];
+    if (!Array.isArray(arr) || arr.length === 0) return [];
+    k = k % arr.length;
+    return [...arr.slice(-k), ...arr.slice(0, -k)];
 }
 
 //16. Check Substring
 function hasSubstring(str, sub) {
-  if (typeof str !== "string" || typeof sub !== "string") return false;
+    if (typeof str !== "string" || typeof sub !== "string") return false;
 
-  return str.includes(sub);
+    return str.includes(sub);
 }
 
 //17. Sum of even numbers
 function sumEven(arr) {
-  if (!Array.isArray(arr) && arr.length === 0) return false;
+    if (!Array.isArray(arr) && arr.length === 0) return false;
 
-  return arr.reduce(
-    (sum, num) => (typeof num === "number" && num % 2 === 0 ? sum + num : sum),
-    0
-  );
+    return arr.reduce(
+        (sum, num) => (typeof num === "number" && num % 2 === 0 ? sum + num : sum),
+        0
+    );
 }
 
 //18. Reverse words in string
 function reverseWords(str) {
-  if (typeof str !== "string" || str.length === 0) return false;
+    if (typeof str !== "string" || str.length === 0) return false;
 
-  return str.split(" ").reverse().join(" ");
+    return str.split(" ").reverse().join(" ");
 }
 
 //again
 //19.Find Second Largest
 function secondLargest(arr) {
-  if (!Array.isArray(arr) && arr.length === 0) return false;
-  let unique = [...new Set(arr.filter((elem) => typeof elem === "number"))];
+    if (!Array.isArray(arr) && arr.length === 0) return false;
+    let unique = [... new Set(arr.filter((elem) => typeof elem === "number"))];
 
-  return unique.sort((a, b) => b - a)[1];
+    return unique.sort((a, b) => b - a)[1];
 }
 
 //again
 // 20. Count Occurrences
 function countOccurrences(str, char) {
-  if (typeof str !== "string" || typeof char !== "string" || char.length !== 1)
-    return 0;
+    if (typeof str !== "string" || typeof char !== "string" || char.length !== 1)
+        return 0;
 
-  return str.split(char).length - 1;
+    return str.split(char).length - 1;
 }
+
